@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+    anki-container:
+        image: jameshi16/anki-docker-sync-server
+        container_name: anki-container
+
+        restart: always
+        ports:
+          - "8888:8888"
+        volumes:
+          - data:/opt/anki
+          - ./ssl:/opt/https
+        env_file: .env.ssl
+
+volumes:
+    data:
