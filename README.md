@@ -13,7 +13,7 @@ which is necessary when connecting the mobile clients to the sync server.
 
 ### Docker Compose
 
-You will need `docker-compose.yml` and the `Dockerfile`. Modify `.env` and update the desired username & password:
+You will need `docker-compose.yml`. Modify `.env` and update the desired username & password:
 ```
 SYNC_USER1=user:password
 SYNC_USER2=user:password
@@ -29,7 +29,7 @@ docker compose up -d
 
 ```
 $ mkdir data
-$ docker run docker run -p 8080:8080-e $PWD/data:/opt/anki -e SYNC_USER1=user:password jameshi16/anki-docker-sync-server
+$ docker run -p 8080:8080 -e $PWD/data:/opt/anki -e SYNC_USER1=user:password jameshi16/anki-docker-sync-server
 ```
 
 This will run Anki sync server at port 8080, and persist all flashcards or media in the `data/` folder.
